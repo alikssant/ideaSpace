@@ -1,0 +1,14 @@
+{
+  "name": "ideaspace",
+  "version": "1.0.0",
+  "description": "thoughts posting app",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Alex Abatov",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.21.1"
+  }
+}
