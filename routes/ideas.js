@@ -51,7 +51,6 @@ router.post('/', (req, res) => {
     }
 
     ideas.push(idea)
-  
     res.json({sucess: true, data: idea})
 })
 
