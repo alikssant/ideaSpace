@@ -54,5 +54,18 @@ router.post('/', (req, res) => {
     res.json({sucess: true, data: idea})
 })
 
+router.put('/:id',(req, res) => {
+  const idea = ideas.find((idea) => idea.id === parseInt(req.params.id))
+  if (!idea) {
+      return res.status(404).json({sucess:false, error: "Resource not found"});
+  }
+  idea.text = req.body.text || idea.text
+  idea.tag = req.body.tag || idea.tag
+  
+  res.json({sucess: true, data: idea})
+})
+  
+
+
 
 module.exports = router
