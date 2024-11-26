@@ -53,7 +53,7 @@ router.post('/', (req, res) => {
     ideas.push(idea)
     res.json({sucess: true, data: idea})
 })
-
+//Update idea
 router.put('/:id',(req, res) => {
   const idea = ideas.find((idea) => idea.id === parseInt(req.params.id))
   if (!idea) {
@@ -63,6 +63,17 @@ router.put('/:id',(req, res) => {
   idea.tag = req.body.tag || idea.tag
   
   res.json({sucess: true, data: idea})
+})
+// Delete idea
+router.delete('/:id',(req, res) => {
+  const idea = ideas.find((idea) => idea.id === parseInt(req.params.id))
+  if (!idea) {
+      return res.status(404).json({sucess:false, error: "Resource not found"});
+  }
+  const index = ideas.indexOf(idea)
+  ideas.splice(index, 1)
+  
+  res.json({sucess: true, data: {}})
 })
   
 
